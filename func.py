@@ -32,8 +32,8 @@ def handler(ctx, data: io.BytesIO=None):
             if 'key' in item:
                 item['key'] = base64_decode(item['key'])
 
-        #df = pd.json_normalize(logs)
-        #csv_result = df.to_csv(index=False)
+        # df = pd.json_normalize(logs)
+        # csv_result = df.to_csv(index=False)
         return response.Response(ctx, status_code=200, response_data=json.dumps(logs, indent=4), headers={"Content-Type": "text/csv"})
     
     except (Exception, ValueError) as e:
